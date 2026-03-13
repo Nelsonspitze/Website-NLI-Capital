@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
      is clicked. Closes automatically when a nav link is clicked.
      ============================================================ */
   const navToggle = document.querySelector('.nav__toggle');
-  const mobileLinks = document.querySelectorAll('.nav__mobile-link');
 
   if (navToggle && nav) {
     navToggle.addEventListener('click', () => {
@@ -47,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    // Close menu when any mobile nav link is clicked
-    mobileLinks.forEach((link) => {
+    // Close menu when any nav link is clicked (mobile overlay)
+    document.querySelectorAll('.nav__links a').forEach((link) => {
       link.addEventListener('click', () => {
         nav.classList.remove('open');
         document.body.style.overflow = '';
@@ -137,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ============================================================ */
   const currentPath = window.location.pathname;
 
-  const allNavLinks = document.querySelectorAll('.nav__link, .nav__mobile-link');
+  const allNavLinks = document.querySelectorAll('.nav__link');
 
   allNavLinks.forEach((link) => {
     const linkPath = link.getAttribute('href');
