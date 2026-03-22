@@ -39,9 +39,20 @@
 
   <section class="section section--white">
     <div class="container">
+
+      <div class="news-filter">
+        <button class="news-filter__btn active" data-filter="all">Alle</button>
+        <button class="news-filter__btn" data-filter="participatie">Participatie</button>
+        <button class="news-filter__btn" data-filter="add-on">Add-on</button>
+        <button class="news-filter__btn" data-filter="fonds">Fonds</button>
+        <button class="news-filter__btn" data-filter="team">Team</button>
+        <button class="news-filter__btn" data-filter="portfolio-update">Portfolio Update</button>
+      </div>
+
       <div class="news-grid">
 
-        <article class="news-card animate-on-scroll">
+        <article class="news-card animate-on-scroll" data-category="fonds">
+          <a href="nieuws/fonds-1-final-close.html" class="news-card__link" aria-label="Lees meer over NLI Capital Fonds 1 final close"></a>
           <div class="news-card__meta">
             <span class="news-card__tag">Fonds</span>
             <time class="news-card__date" datetime="2025-03-01">Maart 2025</time>
@@ -49,11 +60,12 @@
           <h2 class="news-card__title">NLI Capital Fonds 1 bereikt final close op €50 miljoen</h2>
           <p class="news-card__text">NLI Capital heeft de final close van NLI Capital Fonds 1 bereikt op een totaal fondsvermogen van €50 miljoen. Het fonds investeert in kansrijke mkb-ondernemingen in Nederland met bewezen businessmodel en groeiambitie.</p>
           <div class="news-card__footer">
-            <a href="contact.html" class="link-arrow">Meer informatie &rarr;</a>
+            <span class="link-arrow">Lees meer &rarr;</span>
           </div>
         </article>
 
-        <article class="news-card animate-on-scroll">
+        <article class="news-card animate-on-scroll" data-category="participatie">
+          <a href="nieuws/quinnect-participatie.html" class="news-card__link" aria-label="Lees meer over NLI Capital investeert in Quinnect"></a>
           <div class="news-card__meta">
             <span class="news-card__tag">Participatie</span>
             <time class="news-card__date" datetime="2024-01-01">2024</time>
@@ -61,11 +73,12 @@
           <h2 class="news-card__title">NLI Capital investeert in Quinnect</h2>
           <p class="news-card__text">NLI Capital heeft een participatie genomen in Quinnect, een toonaangevende leverancier van IT-infrastructuur en managed services voor het mkb. De investering ondersteunt de verdere groei van Quinnect in Nederland.</p>
           <div class="news-card__footer">
-            <a href="portfolio.html" class="link-arrow">Bekijk participaties &rarr;</a>
+            <span class="link-arrow">Lees meer &rarr;</span>
           </div>
         </article>
 
-        <article class="news-card animate-on-scroll">
+        <article class="news-card animate-on-scroll" data-category="participatie">
+          <a href="nieuws/atg-participatie.html" class="news-card__link" aria-label="Lees meer over investering in Access Technology Group"></a>
           <div class="news-card__meta">
             <span class="news-card__tag">Participatie</span>
             <time class="news-card__date" datetime="2024-01-01">2024</time>
@@ -73,23 +86,25 @@
           <h2 class="news-card__title">Investering in Access Technology Group</h2>
           <p class="news-card__text">NLI Capital heeft geïnvesteerd in Access Technology Group, specialist in toegangscontrole, camerabewaking en inbraakdetectie voor zakelijke klanten. Het bedrijf heeft een sterke positie in de Benelux.</p>
           <div class="news-card__footer">
-            <a href="portfolio.html" class="link-arrow">Bekijk participaties &rarr;</a>
+            <span class="link-arrow">Lees meer &rarr;</span>
           </div>
         </article>
 
-        <article class="news-card animate-on-scroll">
+        <article class="news-card animate-on-scroll" data-category="participatie">
+          <a href="nieuws/turner-platform-participatie.html" class="news-card__link" aria-label="Lees meer over NLI Capital neemt belang in Turner Platform"></a>
           <div class="news-card__meta">
             <span class="news-card__tag">Participatie</span>
             <time class="news-card__date" datetime="2024-01-01">2024</time>
           </div>
           <h2 class="news-card__title">NLI Capital neemt belang in Turner Platform</h2>
-          <p class="news-card__text">Turner Platform, ontwikkelaar van een SaaS-platform voor de makelaardij en vastgoedsector, ontvangt een investering van NLI Capital om de productdevelopment en commerciële groei te versnellen.</p>
+          <p class="news-card__text">Turner Platform, ontwikkelaar van een SaaS-platform voor de makelaardij en vastgoedsector, ontvangt een investering van NLI Capital om de productontwikkeling en commerciële groei te versnellen.</p>
           <div class="news-card__footer">
-            <a href="portfolio.html" class="link-arrow">Bekijk participaties &rarr;</a>
+            <span class="link-arrow">Lees meer &rarr;</span>
           </div>
         </article>
 
-        <article class="news-card animate-on-scroll">
+        <article class="news-card animate-on-scroll" data-category="participatie">
+          <a href="nieuws/hetraco-participatie.html" class="news-card__link" aria-label="Lees meer over participatie in Hetraco"></a>
           <div class="news-card__meta">
             <span class="news-card__tag">Participatie</span>
             <time class="news-card__date" datetime="2024-01-01">2024</time>
@@ -97,7 +112,46 @@
           <h2 class="news-card__title">Participatie in Hetraco</h2>
           <p class="news-card__text">Hetraco, gespecialiseerd in thermische isolatie en brandwerende toepassingen voor de industrie, versterkt haar positie in de energie- en procesindustrie met de steun van NLI Capital.</p>
           <div class="news-card__footer">
-            <a href="portfolio.html" class="link-arrow">Bekijk participaties &rarr;</a>
+            <span class="link-arrow">Lees meer &rarr;</span>
+          </div>
+        </article>
+
+        <article class="news-card animate-on-scroll" data-category="add-on">
+          <a href="nieuws/incompanymedia-add-on.html" class="news-card__link" aria-label="Lees meer over InCompanyMedia versterkt Quinnect"></a>
+          <div class="news-card__meta">
+            <span class="news-card__tag">Add-on</span>
+            <time class="news-card__date" datetime="2024-02-16">Februari 2024</time>
+          </div>
+          <h2 class="news-card__title">InCompanyMedia versterkt Quinnect als add-on acquisitie</h2>
+          <p class="news-card__text">Quinnect heeft InCompanyMedia BV overgenomen, een specialist in IPTV en internetdiensten voor de zorg, horeca en zakelijke markt. InCompanyMedia gaat verder als zelfstandige divisie binnen Quinnect Groep.</p>
+          <div class="news-card__footer">
+            <span class="link-arrow">Lees meer &rarr;</span>
+          </div>
+        </article>
+
+        <article class="news-card animate-on-scroll" data-category="portfolio-update">
+          <a href="nieuws/atg-global-expansie.html" class="news-card__link" aria-label="Lees meer over Access Technology Group globale expansie"></a>
+          <div class="news-card__meta">
+            <span class="news-card__tag">Portfolio Update</span>
+            <time class="news-card__date" datetime="2024-07-01">Juli 2024</time>
+          </div>
+          <h2 class="news-card__title">Access Technology Group zet koers naar mondiale groei</h2>
+          <p class="news-card__text">Met de steun van NLI Capital heeft Access Technology Group haar internationale groeistrategie gelanceerd. Het bedrijf breidt zijn activiteiten uit naar nieuwe markten in Europa, Azië en Noord-Amerika.</p>
+          <div class="news-card__footer">
+            <span class="link-arrow">Lees meer &rarr;</span>
+          </div>
+        </article>
+
+        <article class="news-card animate-on-scroll" data-category="team">
+          <a href="nieuws/team-update.html" class="news-card__link" aria-label="Lees meer over Reinoud van den Wall Bake versterkt NLI Capital"></a>
+          <div class="news-card__meta">
+            <span class="news-card__tag">Team</span>
+            <time class="news-card__date" datetime="2024-01-01">2024</time>
+          </div>
+          <h2 class="news-card__title">Reinoud van den Wall Bake versterkt het NLI Capital team</h2>
+          <p class="news-card__text">NLI Capital verwelkomt Reinoud van den Wall Bake in het team. Met zijn brede ervaring in private equity en corporate finance versterkt hij de investeringscapaciteit van NLI Capital.</p>
+          <div class="news-card__footer">
+            <span class="link-arrow">Lees meer &rarr;</span>
           </div>
         </article>
 

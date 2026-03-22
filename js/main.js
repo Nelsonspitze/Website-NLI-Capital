@@ -185,4 +185,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  /* ============================================================
+     7. News Category Filter
+     Filters .news-card elements by their data-category attribute
+     when filter buttons on the nieuws page are clicked.
+     ============================================================ */
+  const filterBtns = document.querySelectorAll('.news-filter__btn');
+
+  if (filterBtns.length) {
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.news-card').forEach((card) => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.toggleAttribute('hidden', !show);
+        });
+      });
+    });
+  }
+
 });

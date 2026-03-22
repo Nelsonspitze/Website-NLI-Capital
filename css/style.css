@@ -1960,3 +1960,131 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   29. News Filter Bar
+   ============================================================ */
+.news-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.news-filter__btn {
+  background: transparent;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: 20px;
+  padding: 0.4rem 1.1rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  line-height: 1;
+}
+
+.news-filter__btn:hover,
+.news-filter__btn.active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ============================================================
+   30. Clickable News Card Overlay
+   ============================================================ */
+.news-card {
+  position: relative;
+}
+
+.news-card__link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius);
+}
+
+.news-card__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.news-card[hidden] {
+  display: none;
+}
+
+/* ============================================================
+   31. News Detail Page — Article Body
+   ============================================================ */
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.article-body p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--color-text-light);
+  margin-bottom: 1.25rem;
+}
+
+.article-body h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 2rem 0 0.75rem;
+}
+
+.article-facts {
+  background: rgba(0, 120, 128, 0.06);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.article-facts__row {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+}
+
+.article-facts__label {
+  font-weight: 700;
+  color: var(--color-text);
+  min-width: 90px;
+}
+
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: 2rem;
+  text-decoration: none;
+}
+
+.article-back:hover {
+  color: var(--color-primary-dark);
+}
+
+.article-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #0a66c2;
+  text-decoration: none;
+}
+
+.article-linkedin:hover {
+  text-decoration: underline;
+}
