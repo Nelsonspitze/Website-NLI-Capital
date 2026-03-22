@@ -1962,7 +1962,45 @@ button:focus-visible {
 }
 
 /* ============================================================
-   29. News Filter Bar
+   29. Team Card Additions
+   ============================================================ */
+.team-card__photo-placeholder {
+  aspect-ratio: 1;
+  background: rgba(0, 120, 128, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+}
+
+.team-card__quote {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-text-light);
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--color-primary);
+}
+
+.team-card__email {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.team-card__email:hover {
+  color: var(--color-primary-dark);
+}
+
+/* ============================================================
+   30. News Filter Bar
    ============================================================ */
 .news-filter {
   display: flex;
