@@ -187,7 +187,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ============================================================
-     7. News Category Filter
+     7. Team Card Expand / Collapse
+     Toggles .expanded on .team-card when the toggle button is
+     clicked, revealing the quote and bio via CSS max-height.
+     ============================================================ */
+  document.querySelectorAll('.team-card__toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.team-card');
+      const expanded = card.classList.toggle('expanded');
+      btn.textContent = expanded ? 'Toon minder \u2191' : 'Lees meer \u2192';
+      btn.setAttribute('aria-expanded', expanded);
+    });
+  });
+
+
+  /* ============================================================
+     8. News Category Filter
      Filters .news-card elements by their data-category attribute
      when filter buttons on the nieuws page are clicked.
      ============================================================ */

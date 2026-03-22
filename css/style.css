@@ -1976,19 +1976,9 @@ button:focus-visible {
   letter-spacing: 0.05em;
 }
 
-.team-card__quote {
-  font-size: 0.9rem;
-  font-style: italic;
-  color: var(--color-text-light);
-  line-height: 1.55;
-  margin-bottom: 0.75rem;
-  padding-left: 0.75rem;
-  border-left: 2px solid var(--color-primary);
-}
-
 .team-card__email {
   display: inline-block;
-  margin-top: 0.75rem;
+  margin-top: 0.25rem;
   font-size: 0.8125rem;
   color: var(--color-primary);
   font-weight: 600;
@@ -1996,6 +1986,55 @@ button:focus-visible {
 }
 
 .team-card__email:hover {
+  color: var(--color-primary-dark);
+}
+
+/* Expandable section (quote + bio) */
+.team-card__expand {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.team-card.expanded .team-card__expand {
+  max-height: 600px;
+}
+
+.team-card__quote {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--color-primary);
+}
+
+.team-card__bio {
+  font-size: 13px;
+  color: rgba(41, 43, 47, 0.55);
+  line-height: 1.6;
+  margin-bottom: 0.25rem;
+}
+
+.team-card__toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  padding: 0;
+  margin-top: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color var(--transition);
+}
+
+.team-card__toggle:hover {
   color: var(--color-primary-dark);
 }
 
