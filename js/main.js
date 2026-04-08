@@ -222,4 +222,110 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  /* ============================================================
+     9. Portfolio Carousel
+     Shows 2 slides at a time on desktop, 1 on mobile.
+     Auto-advances every 4 s; pauses on hover/focus.
+     ============================================================ */
+  const carousel = document.getElementById('portfolioCarousel');
+
+  if (carousel) {
+    const viewport = carousel.querySelector('.carousel__viewport');
+    const track    = document.getElementById('carouselTrack');
+    const slides   = Array.from(track.querySelectorAll('.carousel__slide'));
+    const dotsEl   = document.getElementById('carouselDots');
+    const prevBtn  = document.getElementById('carouselPrev');
+    const nextBtn  = document.getElementById('carouselNext');
+
+    let current    = 0;
+    let autoTimer  = null;
+
+    function perView() {
+      return window.innerWidth <= 640 ? 1 : 2;
+    }
+
+    function maxIdx() {
+      return Math.max(0, slides.length - perView());
+    }
+
+    // Build / rebuild dot buttons
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      for (let i = 0; i <= maxIdx(); i++) {
+        const dot = document.createElement('button');
+        dot.className = 'carousel__dot' + (i === current ? ' active' : '');
+        dot.setAttribute('aria-label', 'Ga naar slide ' + (i + 1));
+        dot.addEventListener('click', () => { goTo(i); startAuto(); });
+        dotsEl.appendChild(dot);
+      }
+    }
+
+    function updateUI() {
+      // Update dots
+      dotsEl.querySelectorAll('.carousel__dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+      // Update buttons
+      prevBtn.disabled = current <= 0;
+      nextBtn.disabled = current >= maxIdx();
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, maxIdx()));
+      // Measure actual rendered slide width each time (handles resize correctly)
+      const slideW = slides[0].getBoundingClientRect().width;
+      const gap    = 24; // matches CSS gap: 1.5rem
+      track.style.transform = `translateX(-${current * (slideW + gap)}px)`;
+      updateUI();
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(() => {
+        goTo(current >= maxIdx() ? 0 : current + 1);
+      }, 4000);
+    }
+
+    function stopAuto() { clearInterval(autoTimer); }
+
+    prevBtn.addEventListener('click', () => { prev(); startAuto(); });
+    nextBtn.addEventListener('click', () => { next(); startAuto(); });
+
+    // Pause on interaction
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('focusin',    stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener('focusout',   startAuto);
+
+    // Swipe
+    let touchX = 0;
+    track.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+    track.addEventListener('touchend',   (e) => {
+      const diff = touchX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) diff > 0 ? next() : prev();
+      startAuto();
+    }, { passive: true });
+
+    // Rebuild on resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        buildDots();
+        goTo(Math.min(current, maxIdx()));
+      }, 100);
+    }, { passive: true });
+
+    // Init — defer one frame so slides have rendered dimensions
+    requestAnimationFrame(() => {
+      buildDots();
+      goTo(0);
+      startAuto();
+    });
+  }
+
 });
