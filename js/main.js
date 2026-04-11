@@ -202,6 +202,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ============================================================
+     8. Contact Form — Formspree AJAX submission
+     Intercepts the form submit, POSTs via fetch, and shows an
+     inline success message so the user never leaves the site.
+     ============================================================ */
+  const contactForm = document.querySelector('.contact-form');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = contactForm.querySelector('[type="submit"]');
+      const originalLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Verzenden…';
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (response.ok) {
+          contactForm.innerHTML = `
+            <div class="form-success">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+              <h3>Bericht verzonden!</h3>
+              <p>Bedankt voor uw bericht. Wij nemen doorgaans binnen één werkdag contact met u op.</p>
+            </div>`;
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+          alert('Er is iets misgegaan. Probeer het opnieuw of stuur een e-mail naar nli-capital@nlinvesteert.nl.');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+        alert('Er is iets misgegaan. Controleer uw internetverbinding en probeer het opnieuw.');
+      }
+    });
+  }
+
+
+  /* ============================================================
      8. News Category Filter
      Filters .news-card elements by their data-category attribute
      when filter buttons on the nieuws page are clicked.
