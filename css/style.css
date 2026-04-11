@@ -2159,6 +2159,29 @@ button:focus-visible {
   color: var(--color-primary);
 }
 
+.team-card__links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.1rem;
+}
+
+.team-card__linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: rgba(41, 43, 47, 0.5);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.team-card__linkedin:hover {
+  color: #0077B5;
+}
+
 /* Expandable section (bio) */
 .team-card__expand {
   max-height: 0;

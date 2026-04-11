@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/logo/nli-capital-logo.svg" type="image/svg+xml">
+  <title>NLI Capital — Design Style Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ================================================
+       Design Guide Base
+       ================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* ── Brand Colors ── */
+      --teal:          #007880;
+      --teal-dark:     #00454A;
+      --teal-light:    #E6F2F3;
+      --coral:         #E73331;
+      --coral-light:   #FDECEA;
+      --charcoal:      #292B2F;
+      --charcoal-mid:  #4A4D52;
+      --gray:          #6B7280;
+      --gray-light:    #F3F3EF;
+      --gray-border:   rgba(41, 43, 47, 0.12);
+      --white:         #ffffff;
+
+      /* ── Typography ── */
+      --font:          'Manrope', sans-serif;
+
+      /* ── Spacing ── */
+      --section-pad: 72px 0;
+      --radius:      10px;
+    }
+
+    body {
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--charcoal);
+      background: #f9f9f7;
+    }
+
+    /* ── Guide Chrome ── */
+    .guide-header {
+      background: var(--teal-dark);
+      color: white;
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .guide-header__logo { font-size: 28px; font-weight: 800; }
+    .guide-header__logo span { color: var(--coral); }
+    .guide-header__meta { border-left: 1px solid rgba(255,255,255,0.3); padding-left: 24px; }
+    .guide-header__meta h1 { font-size: 20px; font-weight: 700; }
+    .guide-header__meta p  { font-size: 13px; opacity: 0.7; margin-top: 2px; }
+
+    .guide-nav {
+      background: var(--charcoal);
+      padding: 0 48px;
+      display: flex;
+      gap: 2px;
+      flex-wrap: wrap;
+    }
+    .guide-nav a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 14px 16px;
+      transition: color 0.2s, border-color 0.2s;
+      border-bottom: 2px solid transparent;
+    }
+    .guide-nav a:hover { color: white; border-color: var(--teal); }
+
+    .guide-content { max-width: 1120px; margin: 0 auto; padding: 64px 48px; }
+
+    .guide-section { margin-bottom: 80px; }
+    .guide-section__title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+    .guide-section__heading {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .guide-section__sub {
+      font-size: 15px;
+      color: var(--gray);
+      margin-bottom: 40px;
+      max-width: 640px;
+    }
+    .guide-divider {
+      height: 1px;
+      background: var(--gray-border);
+      margin-bottom: 40px;
+    }
+
+    /* ── Color Palette ── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .color-swatch {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      background: white;
+    }
+    .color-swatch__block { height: 80px; }
+    .color-swatch__info { padding: 12px 14px; }
+    .color-swatch__name { font-size: 12px; font-weight: 700; color: var(--charcoal); }
+    .color-swatch__hex  { font-size: 11px; color: var(--gray); font-family: monospace; margin-top: 2px; }
+    .color-swatch__use  { font-size: 11px; color: var(--gray); margin-top: 4px; line-height: 1.4; }
+
+    /* ── Typography Specimens ── */
+    .type-row {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--gray-border);
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 32px;
+      align-items: center;
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-row__meta { font-size: 12px; color: var(--gray); line-height: 1.8; }
+    .type-row__meta strong { color: var(--charcoal); font-weight: 700; }
+    .type-row__meta code {
+      background: var(--gray-light);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 11px;
+    }
+
+    /* ── Component Showcase ── */
+    .component-row {
+      margin-bottom: 48px;
+    }
+    .component-row__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .component-row__label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-border);
+    }
+    .component-preview {
+      background: white;
+      border: 1px solid var(--gray-border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .component-preview--dark {
+      background: var(--teal-dark);
+    }
+    .component-preview--light {
+      background: var(--gray-light);
+    }
+
+    /* ================================================
+       NLI Capital ACTUAL COMPONENTS
+       (These are the real design patterns to use)
+       ================================================ */
+
+    /* ── Slide: Cover ── */
+    .slide-cover {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      max-width: 720px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .slide-cover__bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a2a2a 0%, #2d4a4c 40%, #1a3535 100%);
+      opacity: 0.9;
+    }
+    .slide-cover__logo {
+      position: absolute;
+      top: 28px;
+      left: 36px;
+      font-size: 18px;
+      font-weight: 800;
+      color: white;
+      z-index: 2;
+    }
+    .slide-cover__logo span { color: var(--coral); }
+    .slide-cover__banner {
+      position: relative;
+      z-index: 2;
+      background: var(--teal);
+      padding: 24px 36px;
+    }
+    .slide-cover__title {
+      font-size: 22px;
+      font-weight: 800;
+      color: white;
+      line-height: 1.2;
+    }
+    .slide-cover__subtitle {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      font-style: italic;
+      margin-top: 6px;
+    }
+
+    /* ── Slide: Section Divider ── */
+    .slide-section {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      max-width: 720px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #1a2a2a 0%, #2d4a4c 60%, #1a3535 100%);
+      display: flex;
+      align-items: flex-end;
+    }
+    .slide-section__num {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-size: 60px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.06);
+      line-height: 1;
+    }
+    .slide-section__banner {
+      width: 100%;
+      background: var(--teal);
+      padding: 20px 36px;
+    }
+    .slide-section__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 4px;
+    }
+    .slide-section__name {
+      font-size: 20px;
+      font-weight: 800;
+      color: white;
+      font-style: italic;
+    }
+
+    /* ── Slide: Content ── */
+    .slide-content {
+      width: 100%;
+      max-width: 720px;
+      aspect-ratio: 16/9;
+      background: white;
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+    .slide-content__header {
+      padding: 20px 32px 0;
+      flex-shrink: 0;
+    }
+    .slide-content__tab {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-light);
+      padding: 3px 8px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .slide-content__title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--charcoal);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .slide-content__rule {
+      height: 2px;
+      background: var(--teal);
+      margin: 8px 0;
+      width: 40px;
+    }
+    .slide-content__body {
+      flex: 1;
+      padding: 4px 32px 0;
+      font-size: 11px;
+      line-height: 1.6;
+      color: var(--charcoal-mid);
+      overflow: hidden;
+    }
+    .slide-content__footer {
+      padding: 6px 32px;
+      background: var(--gray-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 9px;
+      color: var(--gray);
+      flex-shrink: 0;
+    }
+    .slide-content__footer-logo { font-weight: 800; color: var(--teal-dark); }
+    .slide-content__footer-logo span { color: var(--coral); }
+
+    /* ── Check List ── */
+    .check-list { list-style: none; }
+    .check-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 6px 0;
+      font-size: 14px;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .check-list li:last-child { border-bottom: none; }
+    .check-list__icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: white;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Info Box ── */
+    .info-box {
+      background: var(--gray-light);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 24px;
+    }
+    .info-box__title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .info-box__body { font-size: 14px; color: var(--charcoal-mid); line-height: 1.6; }
+
+    /* ── Highlight Box ── */
+    .highlight-box {
+      background: var(--teal);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      color: white;
+    }
+    .highlight-box__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+    .highlight-box__value {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .highlight-box__sub { font-size: 12px; opacity: 0.8; margin-top: 4px; }
+
+    /* ── Alert Box ── */
+    .alert-box {
+      background: var(--coral-light);
+      border-left: 3px solid var(--coral);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 24px;
+    }
+    .alert-box__title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 8px;
+    }
+    .alert-box__body { font-size: 14px; color: var(--charcoal-mid); line-height: 1.6; }
+
+    /* ── Data Table ── */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .data-table thead tr { background: var(--teal); }
+    .data-table thead th {
+      color: white;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 10px 16px;
+      text-align: left;
+    }
+    .data-table tbody tr:nth-child(even) { background: var(--gray-light); }
+    .data-table tbody tr:nth-child(odd)  { background: white; }
+    .data-table tbody td {
+      padding: 10px 16px;
+      color: var(--charcoal-mid);
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ── Numbered Pillar ── */
+    .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .pillar {
+      background: white;
+      border: 1px solid var(--gray-border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .pillar__num {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 12px;
+      opacity: 0.3;
+    }
+    .pillar__title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .pillar__body { font-size: 13px; color: var(--charcoal-mid); line-height: 1.6; }
+
+    /* ── KPI Card ── */
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .kpi-card {
+      background: white;
+      border: 1px solid var(--gray-border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      border-top: 3px solid var(--teal);
+    }
+    .kpi-card__label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .kpi-card__value { font-size: 28px; font-weight: 800; color: var(--charcoal); line-height: 1; }
+    .kpi-card__sub { font-size: 12px; color: var(--gray); margin-top: 4px; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal);
+      color: white;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--teal-dark); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--teal);
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 11px 24px;
+      border: 2px solid var(--teal);
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: var(--teal); color: white; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--charcoal-mid);
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 11px 20px;
+      border: 1px solid var(--gray-border);
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    /* ── Tag / Badge ── */
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .tag--teal    { background: var(--teal-light); color: var(--teal-dark); }
+    .tag--coral   { background: var(--coral-light); color: var(--coral); }
+    .tag--neutral { background: var(--gray-light); color: var(--charcoal-mid); }
+
+    /* ── Quote / Testimonial ── */
+    .quote-block {
+      border-left: 3px solid var(--teal);
+      padding: 16px 24px;
+      background: var(--teal-light);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .quote-block__text {
+      font-size: 16px;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .quote-block__author { font-size: 12px; font-weight: 700; color: var(--teal-dark); }
+    .quote-block__role   { font-size: 12px; color: var(--gray); }
+
+    /* ── Section Header (document) ── */
+    .doc-section-header {
+      background: var(--teal);
+      padding: 12px 24px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .doc-section-header__title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    /* ── Layout helpers for the guide ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .flex-gap { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .mt-4  { margin-top: 16px; }
+    .mt-8  { margin-top: 32px; }
+    .mb-4  { margin-bottom: 16px; }
+    .text-sm { font-size: 12px; color: var(--gray); }
+    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* ── Code block ── */
+    .code-block {
+      background: #1e2228;
+      color: #a8d8a8;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      line-height: 1.7;
+      overflow-x: auto;
+      margin-top: 12px;
+    }
+    .code-block .c-key   { color: #79b8ff; }
+    .code-block .c-val   { color: #f0e68c; }
+    .code-block .c-str   { color: #f8a5a5; }
+    .code-block .c-comm  { color: #6a9955; font-style: italic; }
+
+    /* ── Spacing demo ── */
+    .spacing-row { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+    .spacing-block {
+      background: var(--teal);
+      opacity: 0.3;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 4px;
+    }
+    .spacing-label { font-size: 10px; color: var(--gray); margin-top: 6px; text-align: center; }
+    .spacing-wrap { display: flex; flex-direction: column; align-items: center; }
+
+    /* ── Logo display ── */
+    .logo-display {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .logo-block {
+      border-radius: var(--radius);
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+    }
+    .logo-text {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .logo-text span { color: var(--coral); }
+
+    @media (max-width: 768px) {
+      .guide-content { padding: 40px 24px; }
+      .guide-header  { padding: 28px 24px; flex-direction: column; gap: 16px; }
+      .guide-nav     { padding: 0 24px; }
+      .grid-2, .pillar-grid, .kpi-grid { grid-template-columns: 1fr; }
+      .type-row      { grid-template-columns: 1fr; }
+      .guide-header__meta { border-left: none; border-top: 1px solid rgba(255,255,255,0.3); padding: 16px 0 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== GUIDE HEADER ===== -->
+  <header class="guide-header">
+    <div class="guide-header__logo"><span>nli</span> capital</div>
+    <div class="guide-header__meta">
+      <h1>Design Style Guide</h1>
+      <p>Brand tokens, typography, components &amp; document templates — v1.0 · April 2026</p>
+    </div>
+  </header>
+
+  <nav class="guide-nav">
+    <a href="#colors">Colors</a>
+    <a href="#typography">Typography</a>
+    <a href="#spacing">Spacing</a>
+    <a href="#logo">Logo</a>
+    <a href="#slides">Slide Templates</a>
+    <a href="#components">Components</a>
+    <a href="#tables">Tables &amp; Data</a>
+    <a href="#buttons">Buttons &amp; Tags</a>
+    <a href="#usage">Usage Notes</a>
+  </nav>
+
+  <main class="guide-content">
+
+    <!-- ===== 1. COLORS ===== -->
+    <section class="guide-section" id="colors">
+      <p class="guide-section__title">Foundation</p>
+      <h2 class="guide-section__heading">Color Palette</h2>
+      <p class="guide-section__sub">The NLI Capital palette consists of two brand colors (teal + coral) with neutral supporting tones. Use teal as the dominant brand signal; coral only for accents and emphasis.</p>
+      <div class="guide-divider"></div>
+
+      <p class="mb-4 text-sm" style="font-weight:700;color:var(--charcoal);">PRIMARY COLORS</p>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch__block" style="background:#007880;"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Teal Primary</div>
+            <div class="color-swatch__hex">#007880</div>
+            <div class="color-swatch__use">Headings, CTAs, nav, borders, table headers, slide banners</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__block" style="background:#00454A;"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Teal Dark</div>
+            <div class="color-swatch__hex">#00454A</div>
+            <div class="color-swatch__use">Dark backgrounds, footers, hover states, slide covers</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__block" style="background:#E6F2F3;"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Teal Light</div>
+            <div class="color-swatch__hex">#E6F2F3</div>
+            <div class="color-swatch__use">Background tints, tag backgrounds, quote blocks</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__block" style="background:#E73331;"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Coral Accent</div>
+            <div class="color-swatch__hex">#E73331</div>
+            <div class="color-swatch__use">Logo "nli", alert borders, emphasis tags only</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__block" style="background:#FDECEA;"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Coral Light</div>
+            <div class="color-swatch__hex">#FDECEA</div>
+            <div class="color-swatch__use">Alert/warning box backgrounds</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-8 mb-4 text-sm" style="font-weight:700;color:var(--charcoal);">NEUTRAL COLORS</p>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="color-swatch__block" style="background:#292B2F;"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Charcoal</div>
+            <div class="color-swatch__hex">#292B2F</div>
+            <div class="color-swatch__use">Body text, headings on white</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__block" style="background:#4A4D52;"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Charcoal Mid</div>
+            <div class="color-swatch__hex">#4A4D52</div>
+            <div class="color-swatch__use">Secondary body text, table cells</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__block" style="background:#6B7280;"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Gray</div>
+            <div class="color-swatch__hex">#6B7280</div>
+            <div class="color-swatch__use">Captions, meta labels, muted text</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__block" style="background:#F3F3EF; border:1px solid #e8e8e2;"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">Gray Light</div>
+            <div class="color-swatch__hex">#F3F3EF</div>
+            <div class="color-swatch__use">Section backgrounds, slide footer strips, info boxes</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="color-swatch__block" style="background:#ffffff; border:1px solid #e8e8e2;"></div>
+          <div class="color-swatch__info">
+            <div class="color-swatch__name">White</div>
+            <div class="color-swatch__hex">#FFFFFF</div>
+            <div class="color-swatch__use">Content slide backgrounds, card surfaces</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block mt-8">
+<span class="c-comm">/* CSS Custom Properties — use these tokens */</span>
+<span class="c-key">--teal</span>:          <span class="c-val">#007880</span>;
+<span class="c-key">--teal-dark</span>:     <span class="c-val">#00454A</span>;
+<span class="c-key">--teal-light</span>:    <span class="c-val">#E6F2F3</span>;
+<span class="c-key">--coral</span>:         <span class="c-val">#E73331</span>;
+<span class="c-key">--charcoal</span>:      <span class="c-val">#292B2F</span>;
+<span class="c-key">--gray-light</span>:    <span class="c-val">#F3F3EF</span>;
+      </div>
+    </section>
+
+
+    <!-- ===== 2. TYPOGRAPHY ===== -->
+    <section class="guide-section" id="typography">
+      <p class="guide-section__title">Foundation</p>
+      <h2 class="guide-section__heading">Typography</h2>
+      <p class="guide-section__sub">Manrope is the exclusive typeface across all NLI Capital outputs — digital and print. Weight 800 for display, 700 for subheadings, 400/500 for body.</p>
+      <div class="guide-divider"></div>
+
+      <div class="type-row">
+        <div style="font-size:52px;font-weight:800;color:var(--charcoal);line-height:1;">Display / Hero</div>
+        <div class="type-row__meta">
+          <strong>Display</strong><br>
+          Size: <code>52–72px</code><br>
+          Weight: <code>800 ExtraBold</code><br>
+          Use: Cover titles, hero sections
+        </div>
+      </div>
+      <div class="type-row">
+        <div style="font-size:36px;font-weight:800;color:var(--charcoal);line-height:1.1;">Section Heading</div>
+        <div class="type-row__meta">
+          <strong>H1 / H2</strong><br>
+          Size: <code>32–40px</code><br>
+          Weight: <code>800 ExtraBold</code><br>
+          Use: Page section titles
+        </div>
+      </div>
+      <div class="type-row">
+        <div style="font-size:22px;font-weight:700;color:var(--charcoal);">Content Heading</div>
+        <div class="type-row__meta">
+          <strong>H3</strong><br>
+          Size: <code>20–24px</code><br>
+          Weight: <code>700 Bold</code><br>
+          Use: Card titles, slide headings
+        </div>
+      </div>
+      <div class="type-row">
+        <div style="font-size:15px;font-weight:700;color:var(--charcoal);text-transform:uppercase;letter-spacing:0.1em;">LABEL / EYEBROW TEXT</div>
+        <div class="type-row__meta">
+          <strong>Label</strong><br>
+          Size: <code>11–13px</code><br>
+          Weight: <code>700</code>, UPPERCASE<br>
+          Letter-spacing: <code>0.08–0.12em</code><br>
+          Use: Section labels, table headers, tags
+        </div>
+      </div>
+      <div class="type-row">
+        <div style="font-size:15px;font-weight:400;color:var(--charcoal-mid);max-width:480px;">Body text should be concise and readable. NLI Capital communicates in clear, direct language — no jargon. Line height 1.6–1.7.</div>
+        <div class="type-row__meta">
+          <strong>Body</strong><br>
+          Size: <code>14–16px</code><br>
+          Weight: <code>400–500 Regular</code><br>
+          Line height: <code>1.6–1.7</code>
+        </div>
+      </div>
+      <div class="type-row">
+        <div style="font-size:13px;color:var(--gray);">Caption / footnote text · Source data · Disclaimer copy</div>
+        <div class="type-row__meta">
+          <strong>Caption</strong><br>
+          Size: <code>11–13px</code><br>
+          Weight: <code>400</code><br>
+          Color: <code>var(--gray)</code>
+        </div>
+      </div>
+      <div class="type-row">
+        <div style="font-size:18px;font-style:italic;color:var(--charcoal-mid);">"Wij zijn een betrokken partner, geen traditionele aandeelhouder."</div>
+        <div class="type-row__meta">
+          <strong>Quote / Italic</strong><br>
+          Size: <code>16–20px</code><br>
+          Weight: <code>400–500 italic</code><br>
+          Use: Slide subtitles, testimonials
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 3. SPACING ===== -->
+    <section class="guide-section" id="spacing">
+      <p class="guide-section__title">Foundation</p>
+      <h2 class="guide-section__heading">Spacing Scale</h2>
+      <p class="guide-section__sub">An 8px base grid. Use multiples consistently for margins, padding, and gaps.</p>
+      <div class="guide-divider"></div>
+
+      <div class="spacing-row">
+        <div class="spacing-wrap"><div class="spacing-block" style="width:4px;height:4px;"></div><div class="spacing-label">4px<br>--space-1</div></div>
+        <div class="spacing-wrap"><div class="spacing-block" style="width:8px;height:8px;"></div><div class="spacing-label">8px<br>--space-2</div></div>
+        <div class="spacing-wrap"><div class="spacing-block" style="width:12px;height:12px;"></div><div class="spacing-label">12px<br>--space-3</div></div>
+        <div class="spacing-wrap"><div class="spacing-block" style="width:16px;height:16px;"></div><div class="spacing-label">16px<br>--space-4</div></div>
+        <div class="spacing-wrap"><div class="spacing-block" style="width:24px;height:24px;"></div><div class="spacing-label">24px<br>--space-6</div></div>
+        <div class="spacing-wrap"><div class="spacing-block" style="width:32px;height:32px;"></div><div class="spacing-label">32px<br>--space-8</div></div>
+        <div class="spacing-wrap"><div class="spacing-block" style="width:40px;height:40px;"></div><div class="spacing-label">40px<br>--space-10</div></div>
+        <div class="spacing-wrap"><div class="spacing-block" style="width:48px;height:48px;"></div><div class="spacing-label">48px<br>--space-12</div></div>
+        <div class="spacing-wrap"><div class="spacing-block" style="width:64px;height:64px;"></div><div class="spacing-label">64px<br>--space-16</div></div>
+        <div class="spacing-wrap"><div class="spacing-block" style="width:80px;height:80px;"></div><div class="spacing-label">80px<br>--space-20</div></div>
+      </div>
+    </section>
+
+
+    <!-- ===== 4. LOGO ===== -->
+    <section class="guide-section" id="logo">
+      <p class="guide-section__title">Brand Identity</p>
+      <h2 class="guide-section__heading">Logo Usage</h2>
+      <p class="guide-section__sub">The NLI Capital logo uses the same Manrope ExtraBold typeface. The "nli" portion is rendered in coral (#E73331); "capital" in the appropriate dark tone for the background.</p>
+      <div class="guide-divider"></div>
+
+      <div class="logo-display">
+        <div>
+          <div class="logo-block" style="background:white;border:1px solid var(--gray-border);">
+            <div class="logo-text"><span>nli</span> capital</div>
+          </div>
+          <div class="text-sm mt-4">On white background</div>
+        </div>
+        <div>
+          <div class="logo-block" style="background:var(--teal-dark);">
+            <div class="logo-text" style="color:white;"><span>nli</span> capital</div>
+          </div>
+          <div class="text-sm mt-4">On dark background</div>
+        </div>
+        <div>
+          <div class="logo-block" style="background:var(--gray-light);border:1px solid var(--gray-border);">
+            <div class="logo-text"><span>nli</span> capital</div>
+          </div>
+          <div class="text-sm mt-4">On light gray background</div>
+        </div>
+        <div>
+          <div class="logo-block" style="background:var(--teal);">
+            <div class="logo-text" style="color:white;"><span>nli</span> capital</div>
+          </div>
+          <div class="text-sm mt-4" style="color:var(--coral);">✗ Avoid — coral on teal hard to read</div>
+        </div>
+      </div>
+
+      <div class="info-box mt-8">
+        <div class="info-box__title">Logo rules</div>
+        <div class="info-box__body">
+          Always use the official SVG files: <code>nli-capital-logo.svg</code> (for light backgrounds) and <code>nli-capital-logo-wit.svg</code> (for dark backgrounds). Do not recreate the logo in custom fonts. Minimum size: 120px wide for digital / 30mm for print. Always maintain clear space equal to the height of the "nli" letterform on all sides.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 5. SLIDE TEMPLATES ===== -->
+    <section class="guide-section" id="slides">
+      <p class="guide-section__title">Document Templates</p>
+      <h2 class="guide-section__heading">Presentation Slide Templates</h2>
+      <p class="guide-section__sub">Three standard slide types form the structure of all NLI Capital presentation documents (Financing Memoranda, Investment Proposals, Deal Summaries).</p>
+      <div class="guide-divider"></div>
+
+      <!-- Cover Slide -->
+      <div class="component-row">
+        <div class="component-row__label">Cover Slide</div>
+        <div class="component-preview" style="background:var(--gray-light);">
+          <div class="slide-cover">
+            <div class="slide-cover__bg"></div>
+            <div class="slide-cover__logo"><span>nli</span> capital</div>
+            <div class="slide-cover__banner">
+              <div class="slide-cover__title">Project Oranje — Financing Memorandum</div>
+              <div class="slide-cover__subtitle">Strictly Confidential · March 2026</div>
+            </div>
+          </div>
+        </div>
+        <p class="text-sm mt-4">Full-bleed dark/photo background · Teal banner at bottom · Logo top-left · White bold title + italic subtitle in banner</p>
+      </div>
+
+      <!-- Section Divider -->
+      <div class="component-row">
+        <div class="component-row__label">Section Divider Slide</div>
+        <div class="component-preview" style="background:var(--gray-light);">
+          <div class="slide-section">
+            <div class="slide-section__num">02</div>
+            <div class="slide-section__banner">
+              <div class="slide-section__label">Section</div>
+              <div class="slide-section__name">Investment Rationale</div>
+            </div>
+          </div>
+        </div>
+        <p class="text-sm mt-4">Same background as cover · Large ghost number top-right · Teal banner bottom · Section label + bold italic section name</p>
+      </div>
+
+      <!-- Content Slide -->
+      <div class="component-row">
+        <div class="component-row__label">Content Slide</div>
+        <div class="component-preview" style="background:var(--gray-light);">
+          <div class="slide-content">
+            <div class="slide-content__header">
+              <div class="slide-content__tab">Company Overview</div>
+              <div class="slide-content__title">Business Profile &amp; Market Position</div>
+              <div class="slide-content__rule"></div>
+            </div>
+            <div class="slide-content__body">
+              <ul class="check-list" style="font-size:11px;">
+                <li><span class="check-list__icon" style="width:14px;height:14px;font-size:8px;">✓</span><span>Leading provider of managed connectivity for the Dutch care sector</span></li>
+                <li><span class="check-list__icon" style="width:14px;height:14px;font-size:8px;">✓</span><span>Recurring revenue model with long-term customer contracts</span></li>
+                <li><span class="check-list__icon" style="width:14px;height:14px;font-size:8px;">✓</span><span>Strong EBITDA margins of 28–32% in FY2024</span></li>
+              </ul>
+            </div>
+            <div class="slide-content__footer">
+              <span class="slide-content__footer-logo"><span>nli</span> capital</span>
+              <span>Confidential · April 2026</span>
+              <span>3</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-sm mt-4">White background · Teal section tab top-left · UPPERCASE bold title + short teal rule · Content area · Light footer strip with logo + page number</p>
+      </div>
+    </section>
+
+
+    <!-- ===== 6. COMPONENTS ===== -->
+    <section class="guide-section" id="components">
+      <p class="guide-section__title">UI Components</p>
+      <h2 class="guide-section__heading">Components</h2>
+      <p class="guide-section__sub">Reusable building blocks for web pages, documents, and reports.</p>
+      <div class="guide-divider"></div>
+
+      <!-- Info Boxes -->
+      <div class="component-row">
+        <div class="component-row__label">Information Boxes</div>
+        <div class="component-preview--light component-preview">
+          <div class="grid-2">
+            <div class="info-box">
+              <div class="info-box__title">Investmentthesis</div>
+              <div class="info-box__body">This is a standard teal-bordered info box for callouts, context, and additional information that supports the main narrative.</div>
+            </div>
+            <div class="alert-box">
+              <div class="alert-box__title">Risicofactor</div>
+              <div class="alert-box__body">Use coral-bordered alert boxes for risks, caveats, and items requiring attention in investment documents.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight / KPI Cards -->
+      <div class="component-row">
+        <div class="component-row__label">KPI Cards</div>
+        <div class="component-preview">
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-card__label">Omzet FY2024</div>
+              <div class="kpi-card__value">€8,4M</div>
+              <div class="kpi-card__sub">+12% YoY</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card__label">EBITDA</div>
+              <div class="kpi-card__value">€1,8M</div>
+              <div class="kpi-card__sub">Marge 21%</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card__label">Medewerkers</div>
+              <div class="kpi-card__value">~40</div>
+              <div class="kpi-card__sub">FTE</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-card__label">Oprichting</div>
+              <div class="kpi-card__value">2011</div>
+              <div class="kpi-card__sub">Nijverdal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight boxes -->
+      <div class="component-row">
+        <div class="component-row__label">Highlight Values</div>
+        <div class="component-preview">
+          <div class="grid-3">
+            <div class="highlight-box">
+              <div class="highlight-box__label">Fondsvermogen</div>
+              <div class="highlight-box__value">€50M</div>
+              <div class="highlight-box__sub">NLI Capital Fonds 1</div>
+            </div>
+            <div class="highlight-box" style="background:var(--teal-dark);">
+              <div class="highlight-box__label">Investeringshorizon</div>
+              <div class="highlight-box__value">3–7 jaar</div>
+              <div class="highlight-box__sub">Belang: min. of meer.</div>
+            </div>
+            <div class="highlight-box" style="background:var(--charcoal);">
+              <div class="highlight-box__label">Ticket grootte</div>
+              <div class="highlight-box__value">€1–5M</div>
+              <div class="highlight-box__sub">Per investering</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Check List -->
+      <div class="component-row">
+        <div class="component-row__label">Check List</div>
+        <div class="component-preview">
+          <ul class="check-list">
+            <li>
+              <span class="check-list__icon">✓</span>
+              <span>Omzet tussen €5 en €30 miljoen</span>
+            </li>
+            <li>
+              <span class="check-list__icon">✓</span>
+              <span>EBITDA €500K–€2,5M</span>
+            </li>
+            <li>
+              <span class="check-list__icon">✓</span>
+              <span>Managementteam met aantoonbare trackrecord</span>
+            </li>
+            <li>
+              <span class="check-list__icon">✓</span>
+              <span>Bewezen businessmodel en sterke marktpositie</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Numbered Pillars -->
+      <div class="component-row">
+        <div class="component-row__label">Numbered Pillars</div>
+        <div class="component-preview">
+          <div class="pillar-grid">
+            <div class="pillar">
+              <div class="pillar__num">01</div>
+              <div class="pillar__title">Bewezen businessmodel</div>
+              <div class="pillar__body">Wij investeren uitsluitend in bedrijven met een aantoonbare winstgevende kernactiviteit.</div>
+            </div>
+            <div class="pillar">
+              <div class="pillar__num">02</div>
+              <div class="pillar__title">Sterk management</div>
+              <div class="pillar__body">Het management heeft een trackrecord en staat open voor samenwerking met een actieve aandeelhouder.</div>
+            </div>
+            <div class="pillar">
+              <div class="pillar__num">03</div>
+              <div class="pillar__title">Groeipotentieel</div>
+              <div class="pillar__body">Organische groei, buy-and-build of marktconsolidatie als concrete groeipaden.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quote Block -->
+      <div class="component-row">
+        <div class="component-row__label">Quote / Testimonial</div>
+        <div class="component-preview">
+          <div class="quote-block">
+            <div class="quote-block__text">"NLI Capital is niet alleen een financier — ze denken actief mee over de strategie en openen deuren die wij zelf niet konden openen."</div>
+            <div class="quote-block__author">Mark Schoppink</div>
+            <div class="quote-block__role">CEO, Quinnect</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section header (for documents) -->
+      <div class="component-row">
+        <div class="component-row__label">Document Section Header</div>
+        <div class="component-preview">
+          <div>
+            <div class="doc-section-header">
+              <div class="doc-section-header__title">3. Financiële Positie</div>
+            </div>
+            <div style="border:1px solid var(--gray-border);border-top:none;border-radius:0 0 var(--radius) var(--radius);padding:20px 24px;font-size:14px;color:var(--charcoal-mid);">
+              Sectie-inhoud volgt hier. Gebruik de teal header altijd met witte tekst in 700 gewicht, UPPERCASE.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ===== 7. TABLES ===== -->
+    <section class="guide-section" id="tables">
+      <p class="guide-section__title">Data Display</p>
+      <h2 class="guide-section__heading">Tables &amp; Data</h2>
+      <p class="guide-section__sub">Dark teal header row, alternating light/white body rows. Use for financial summaries, comparison tables, and deal terms.</p>
+      <div class="guide-divider"></div>
+
+      <div class="component-row">
+        <div class="component-row__label">Standard Data Table</div>
+        <div class="component-preview">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Metriek</th>
+                <th>FY2022</th>
+                <th>FY2023</th>
+                <th>FY2024</th>
+                <th>CAGR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Omzet (€M)</td>
+                <td>6,7</td>
+                <td>7,5</td>
+                <td>8,4</td>
+                <td>+12%</td>
+              </tr>
+              <tr>
+                <td>EBITDA (€M)</td>
+                <td>1,3</td>
+                <td>1,6</td>
+                <td>1,8</td>
+                <td>+18%</td>
+              </tr>
+              <tr>
+                <td>EBITDA-marge</td>
+                <td>19%</td>
+                <td>21%</td>
+                <td>21%</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>Netto medewerkers (FTE)</td>
+                <td>34</td>
+                <td>38</td>
+                <td>41</td>
+                <td>+10%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 8. BUTTONS & TAGS ===== -->
+    <section class="guide-section" id="buttons">
+      <p class="guide-section__title">Interactive Elements</p>
+      <h2 class="guide-section__heading">Buttons &amp; Tags</h2>
+      <div class="guide-divider"></div>
+
+      <div class="component-row">
+        <div class="component-row__label">Buttons</div>
+        <div class="component-preview">
+          <div class="flex-gap">
+            <a class="btn-primary" href="#">Neem contact op</a>
+            <a class="btn-secondary" href="#">Meer informatie</a>
+            <a class="btn-ghost" href="#">Lees meer &rarr;</a>
+          </div>
+          <div class="flex-gap mt-4">
+            <a class="btn-primary" href="#" style="background:var(--coral);">Coral Variant</a>
+            <a class="btn-primary" href="#" style="background:var(--charcoal);">Dark Variant</a>
+            <a class="btn-secondary" href="#" style="border-color:var(--coral);color:var(--coral);">Coral Outline</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-row">
+        <div class="component-row__label">Tags &amp; Badges</div>
+        <div class="component-preview">
+          <div class="badge-row">
+            <span class="tag tag--teal">ICT &amp; Managed Services</span>
+            <span class="tag tag--teal">Financiële Dienstverlening</span>
+            <span class="tag tag--teal">Industrie</span>
+            <span class="tag tag--coral">Nieuw</span>
+            <span class="tag tag--neutral">Meerderheidsbelang</span>
+            <span class="tag tag--neutral">Minderheidsbelang</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== 9. USAGE NOTES ===== -->
+    <section class="guide-section" id="usage">
+      <p class="guide-section__title">Guidelines</p>
+      <h2 class="guide-section__heading">Usage Notes</h2>
+      <p class="guide-section__sub">Practical rules for applying this design system consistently across all NLI Capital documents.</p>
+      <div class="guide-divider"></div>
+
+      <div class="grid-2">
+        <div class="info-box">
+          <div class="info-box__title">Do</div>
+          <div class="info-box__body">
+            <ul style="padding-left:16px;line-height:2;font-size:13px;">
+              <li>Use teal as the primary brand color throughout</li>
+              <li>Keep coral strictly for logo "nli" and alert accents</li>
+              <li>Use UPPERCASE + letter-spacing for labels and slide headings</li>
+              <li>Use Manrope 800 ExtraBold for all display and slide titles</li>
+              <li>Maintain whitespace — never fill every pixel</li>
+              <li>Use the teal separator rule (2px line) under content headings</li>
+              <li>Align to 8px grid for all spacing decisions</li>
+              <li>Include page number and logo in every slide footer</li>
+            </ul>
+          </div>
+        </div>
+        <div class="alert-box">
+          <div class="alert-box__title">Don't</div>
+          <div class="alert-box__body">
+            <ul style="padding-left:16px;line-height:2;font-size:13px;">
+              <li>Don't use coral as a background color</li>
+              <li>Don't mix font weights randomly — stick to the scale</li>
+              <li>Don't use more than 3 type sizes per slide</li>
+              <li>Don't recreate the logo — always use the SVG file</li>
+              <li>Don't use borders heavier than 1–2px</li>
+              <li>Don't use gradients outside of dark slide backgrounds</li>
+              <li>Don't use red/green for positive/negative — use teal/coral</li>
+              <li>Don't compress or stretch the logo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <div class="doc-section-header">
+          <div class="doc-section-header__title">Document Hierarchy</div>
+        </div>
+        <div style="border:1px solid var(--gray-border);border-top:none;border-radius:0 0 var(--radius) var(--radius);padding:24px;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Document Type</th>
+                <th>Slide Types Used</th>
+                <th>Typical Length</th>
+                <th>Audience</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Financing Memorandum</td>
+                <td>Cover · Dividers · Content</td>
+                <td>30–50 slides</td>
+                <td>Debt advisors, banks, investors</td>
+              </tr>
+              <tr>
+                <td>Investment Proposal</td>
+                <td>Cover · Dividers · Content · KPI cards</td>
+                <td>20–30 slides</td>
+                <td>LP investment committee</td>
+              </tr>
+              <tr>
+                <td>Deal Summary / Teaser</td>
+                <td>Cover · Content</td>
+                <td>5–8 slides</td>
+                <td>Potential co-investors, advisors</td>
+              </tr>
+              <tr>
+                <td>Portfolio Company Profile</td>
+                <td>Cover · KPI cards · Pillars</td>
+                <td>4–6 slides</td>
+                <td>Investors, LP reports</td>
+              </tr>
+              <tr>
+                <td>Website / Digital</td>
+                <td>CSS components from style.css</td>
+                <td>n/a</td>
+                <td>All audiences</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="grid-2 mt-8">
+        <div class="info-box">
+          <div class="info-box__title">For PPTX / Presentations</div>
+          <div class="info-box__body" style="font-size:13px;line-height:1.8;">
+            <strong>Font:</strong> Manrope (Google Fonts, free)<br>
+            <strong>Slide size:</strong> 16:9 widescreen (33,87 × 19,05 cm)<br>
+            <strong>Background:</strong> White (#FFFFFF) or Light Gray (#F3F3EF)<br>
+            <strong>Heading color:</strong> Teal (#007880) or Charcoal (#292B2F)<br>
+            <strong>Accent bar:</strong> 2pt teal rule below slide titles<br>
+            <strong>Footer:</strong> Light gray strip, 10pt Manrope, logo right
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box__title">For Word / PDF Documents</div>
+          <div class="info-box__body" style="font-size:13px;line-height:1.8;">
+            <strong>Font:</strong> Manrope (or Calibri as fallback)<br>
+            <strong>H1:</strong> 20pt, Manrope 800, Teal (#007880)<br>
+            <strong>H2:</strong> 14pt, Manrope 700, Charcoal (#292B2F)<br>
+            <strong>Body:</strong> 10–11pt, Manrope 400, Charcoal Mid<br>
+            <strong>Margins:</strong> 2,5cm all sides<br>
+            <strong>Table header:</strong> Teal fill, white 700 text
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer style="background:var(--teal-dark);color:rgba(255,255,255,0.6);text-align:center;padding:24px;font-size:12px;">
+    <span style="font-weight:800;color:white;"><span style="color:var(--coral);">nli</span> capital</span>
+    &nbsp;·&nbsp; Design Style Guide v1.0 &nbsp;·&nbsp; Internal Use Only &nbsp;·&nbsp; April 2026
+  </footer>
+
+</body>
+</html>

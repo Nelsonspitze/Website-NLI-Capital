@@ -149,9 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const normalizedCurrent = normalize(currentPath);
     const normalizedLink    = normalize(linkPath.split('?')[0]); // ignore query strings
 
+    // Also mark parent nav item active when on a subpage
+    // e.g. /portfolio/quinnect.html → portfolio.html is active
+    const linkBaseName = normalizedLink.split('/').pop().replace('.html', '');
+
     const isActive =
       normalizedLink === normalizedCurrent ||
-      (normalizedLink.endsWith('index.html') && normalizedCurrent === '/');
+      (normalizedLink.endsWith('index.html') && normalizedCurrent === '/') ||
+      (linkBaseName && normalizedCurrent.includes('/' + linkBaseName + '/'));
 
     if (isActive) {
       link.classList.add('active');
