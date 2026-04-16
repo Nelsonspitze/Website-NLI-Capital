@@ -1686,6 +1686,30 @@ a {
   color: var(--color-white);
 }
 
+.footer__member {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer__member-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.footer__member-logo {
+  opacity: 0.7;
+  filter: brightness(0) invert(1);
+  transition: opacity var(--transition);
+}
+
+.footer__member-logo:hover {
+  opacity: 1;
+}
+
 .footer__brand p {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.55);
@@ -2686,8 +2710,7 @@ button:focus-visible {
 }
 
 .portfolio-card--link:hover .portfolio-card__inner {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-  transform: translateY(-3px);
+  box-shadow: none;
 }
 
 
