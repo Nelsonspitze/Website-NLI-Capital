@@ -1313,6 +1313,29 @@ a {
   color: var(--color-primary-dark);
 }
 
+.contact__nvp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.contact__nvp-label {
+  font-size: 13px;
+  color: var(--color-text-muted, #6b7280);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.contact__nvp-logo {
+  opacity: 0.6;
+  transition: opacity var(--transition);
+}
+
+.contact__nvp-logo:hover {
+  opacity: 1;
+}
+
 .contact__visuals {
   display: grid;
   grid-template-columns: 1fr 1fr;
