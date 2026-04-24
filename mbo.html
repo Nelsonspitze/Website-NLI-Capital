@@ -71,22 +71,6 @@
       </div>
     </section>
 
-    <!-- NLInvesteert logo + video -->
-    <section class="section section--light">
-      <div class="container" style="text-align:center;">
-        <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius);box-shadow:0 8px 32px rgba(0,0,0,0.12);">
-          <iframe
-            src="https://www.youtube.com/embed/ZAY5wmOWVEQ?start=19"
-            title="NLI Capital — Management Buy-Out"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            style="position:absolute;top:0;left:0;width:100%;height:100%;">
-          </iframe>
-        </div>
-      </div>
-    </section>
-
     <!-- Voor wie -->
     <section class="section section--light">
       <div class="container">
@@ -118,6 +102,148 @@
             </div>
             <h3 class="thema-card__title">Het profiel van het bedrijf</h3>
             <p class="thema-card__text">Het bedrijf is winstgevend of snel op weg daarheen en heeft een bewezen marktpositie. Het kapitaalbedrag dat nodig is voor de transactie bedraagt doorgaans tot €10 miljoen.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MBO Check -->
+    <section class="section section--white" id="mbo-check">
+      <div class="container">
+        <div class="section__header">
+          <h2>Doe de MBO Check</h2>
+          <p class="section__sub">Ontdek in 2 minuten of uw situatie aansluit bij onze criteria.</p>
+        </div>
+        <div class="mbo-check" role="region" aria-label="MBO Check">
+
+          <div class="mbo-check__progress" aria-hidden="true" id="mboProgress">
+            <span class="mbo-check__dot" data-step="1"></span>
+            <span class="mbo-check__dot" data-step="2"></span>
+            <span class="mbo-check__dot" data-step="3"></span>
+            <span class="mbo-check__dot" data-step="4"></span>
+            <span class="mbo-check__dot" data-step="5"></span>
+          </div>
+
+          <!-- Stap 0: Rol -->
+          <div class="mbo-check__step is-active" id="mboStep0">
+            <p class="mbo-check__step-label">Doe de MBO Check — is uw situatie geschikt?</p>
+            <h3 class="mbo-check__question">Wat is uw rol in deze situatie?</h3>
+            <div class="mbo-check__options mbo-check__options--roles">
+              <button class="mbo-check__role-btn" data-role="eigenaar">
+                <span class="mbo-check__role-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </span>
+                <span class="mbo-check__role-title">Eigenaar / Verkoper</span>
+                <span class="mbo-check__role-sub">Ik wil mijn bedrijf overdragen aan het management</span>
+              </button>
+              <button class="mbo-check__role-btn" data-role="management">
+                <span class="mbo-check__role-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <span class="mbo-check__role-title">Management / Koper</span>
+                <span class="mbo-check__role-sub">Ik wil eigenaar worden van het bedrijf dat ik leid</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Stap 1: Omzet -->
+          <div class="mbo-check__step" id="mboStep1">
+            <p class="mbo-check__step-label">Vraag 1 van 5</p>
+            <h3 class="mbo-check__question">Heeft de onderneming een jaaromzet van €2 tot €30 miljoen?</h3>
+            <div class="mbo-check__options">
+              <button class="mbo-check__option-btn" data-answer="ja" data-step="1">Ja</button>
+              <button class="mbo-check__option-btn" data-answer="nee" data-step="1">Nee</button>
+            </div>
+            <button class="mbo-check__back" data-target="0">&larr; Terug</button>
+          </div>
+
+          <!-- Stap 2: Winstgevendheid -->
+          <div class="mbo-check__step" id="mboStep2">
+            <p class="mbo-check__step-label">Vraag 2 van 5</p>
+            <h3 class="mbo-check__question">Is de EBITDA van de onderneming structureel positief?</h3>
+            <div class="mbo-check__options">
+              <button class="mbo-check__option-btn" data-answer="ja" data-step="2">Ja</button>
+              <button class="mbo-check__option-btn" data-answer="nee" data-step="2">Nee</button>
+            </div>
+            <button class="mbo-check__back" data-target="1">&larr; Terug</button>
+          </div>
+
+          <!-- Stap 3: Locatie -->
+          <div class="mbo-check__step" id="mboStep3">
+            <p class="mbo-check__step-label">Vraag 3 van 5</p>
+            <h3 class="mbo-check__question">Is de onderneming in Nederland gevestigd?</h3>
+            <div class="mbo-check__options">
+              <button class="mbo-check__option-btn" data-answer="ja" data-step="3">Ja</button>
+              <button class="mbo-check__option-btn" data-answer="nee" data-step="3">Nee</button>
+            </div>
+            <button class="mbo-check__back" data-target="2">&larr; Terug</button>
+          </div>
+
+          <!-- Stap 4: Management -->
+          <div class="mbo-check__step" id="mboStep4">
+            <p class="mbo-check__step-label">Vraag 4 van 5</p>
+            <h3 class="mbo-check__question">Is er een managementteam dat eigenaarschap wil overnemen?</h3>
+            <div class="mbo-check__options">
+              <button class="mbo-check__option-btn" data-answer="ja" data-step="4">Ja</button>
+              <button class="mbo-check__option-btn" data-answer="nee" data-step="4">Nee</button>
+            </div>
+            <button class="mbo-check__back" data-target="3">&larr; Terug</button>
+          </div>
+
+          <!-- Stap 5: Verkoopbereidheid -->
+          <div class="mbo-check__step" id="mboStep5">
+            <p class="mbo-check__step-label">Vraag 5 van 5</p>
+            <h3 class="mbo-check__question">Is de huidige eigenaar bereid een meerderheidsbelang te verkopen?</h3>
+            <div class="mbo-check__options">
+              <button class="mbo-check__option-btn" data-answer="ja" data-step="5">Ja</button>
+              <button class="mbo-check__option-btn" data-answer="nee" data-step="5">Nee</button>
+            </div>
+            <button class="mbo-check__back" data-target="4">&larr; Terug</button>
+          </div>
+
+          <!-- Resultaat: Match -->
+          <div class="mbo-check__result mbo-check__result--match" id="mboResultMatch">
+            <div class="mbo-check__result-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h3 class="mbo-check__result-title">Uw situatie past bij NLI Capital</h3>
+            <p class="mbo-check__result-text">Op basis van uw antwoorden sluit uw situatie aan bij onze investeringscriteria. Laat uw gegevens achter en wij nemen binnen één werkdag contact met u op.</p>
+            <form class="mbo-check__form" action="https://formspree.io/f/xojpgwal" method="POST" id="mboContactForm">
+              <input type="hidden" name="_subject" value="MBO Check Lead">
+              <div class="mbo-check__form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="mboNaam">Naam <span class="form-required" aria-hidden="true">*</span></label>
+                  <input class="form-input" id="mboNaam" name="naam" type="text" placeholder="Uw naam" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="mboBedrijf">Bedrijf <span class="form-required" aria-hidden="true">*</span></label>
+                  <input class="form-input" id="mboBedrijf" name="bedrijf" type="text" placeholder="Bedrijfsnaam" required autocomplete="organization">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="mboEmail">E-mailadres <span class="form-required" aria-hidden="true">*</span></label>
+                  <input class="form-input" id="mboEmail" name="email" type="email" placeholder="uw@email.nl" required autocomplete="email">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="mboTelefoon">Telefoonnummer</label>
+                  <input class="form-input" id="mboTelefoon" name="telefoon" type="tel" placeholder="+31 6 00 00 00 00" autocomplete="tel">
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Verstuur mijn gegevens</button>
+            </form>
+            <button class="mbo-check__restart" id="mboRestartMatch">Opnieuw beginnen</button>
+          </div>
+
+          <!-- Resultaat: Geen match -->
+          <div class="mbo-check__result mbo-check__result--nomatch" id="mboResultNoMatch">
+            <div class="mbo-check__result-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <h3 class="mbo-check__result-title">Uw situatie past op dit moment niet bij onze criteria</h3>
+            <p class="mbo-check__result-text">NLI Capital richt zich op winstgevende Nederlandse ondernemingen met een omzet van €2–30 miljoen, waarbij een managementteam bereid is eigenaarschap over te nemen en de eigenaar openstaat voor verkoop van een meerderheidsbelang.</p>
+            <p class="mbo-check__result-text">Twijfelt u? Neem gerust vrijblijvend contact op — wij denken graag mee.</p>
+            <a href="contact.html" class="btn btn-primary">Toch contact opnemen</a>
+            <button class="mbo-check__restart" id="mboRestartNoMatch">Opnieuw beginnen</button>
           </div>
 
         </div>
@@ -164,29 +290,18 @@
       </div>
     </section>
 
-    <!-- Proces -->
+    <!-- Video -->
     <section class="section section--light">
-      <div class="container">
-        <div class="section__header">
-          <h2>Hoe werkt het?</h2>
-          <p class="section__sub">Van eerste gesprek tot succesvolle overdracht</p>
-        </div>
-        <div class="steps">
-          <div class="step-card animate-on-scroll">
-            <div class="step-card__number">01</div>
-            <h3 class="step-card__title">Eerste gesprek</h3>
-            <p class="step-card__text">We verkennen samen de situatie: wat is de aanleiding, wat zijn de ambities van het management, en past het bedrijf bij onze investeringsfocus?</p>
-          </div>
-          <div class="step-card animate-on-scroll">
-            <div class="step-card__number">02</div>
-            <h3 class="step-card__title">Analyse &amp; indicatief bod</h3>
-            <p class="step-card__text">Wij analyseren het bedrijf en komen met een indicatieve waardering en transactiestructuur. We bespreken dit open met alle betrokken partijen.</p>
-          </div>
-          <div class="step-card animate-on-scroll">
-            <div class="step-card__number">03</div>
-            <h3 class="step-card__title">Due diligence &amp; closing</h3>
-            <p class="step-card__text">Na akkoord volgt een zorgvuldig due diligence proces, gevolgd door het opstellen en ondertekenen van de transactiedocumentatie.</p>
-          </div>
+      <div class="container" style="text-align:center;">
+        <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius);box-shadow:0 8px 32px rgba(0,0,0,0.12);">
+          <iframe
+            src="https://www.youtube.com/embed/ZAY5wmOWVEQ?start=19"
+            title="NLI Capital — Management Buy-Out"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="position:absolute;top:0;left:0;width:100%;height:100%;">
+          </iframe>
         </div>
       </div>
     </section>
@@ -225,6 +340,33 @@
               </div>
             </div>
             <a href="nieuws/hetraco-mbo.html" class="case-card__link">Lees het volledige verhaal &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proces -->
+    <section class="section section--light">
+      <div class="container">
+        <div class="section__header">
+          <h2>Hoe werkt het?</h2>
+          <p class="section__sub">Van eerste gesprek tot succesvolle overdracht</p>
+        </div>
+        <div class="steps">
+          <div class="step-card animate-on-scroll">
+            <div class="step-card__number">01</div>
+            <h3 class="step-card__title">Eerste gesprek</h3>
+            <p class="step-card__text">We verkennen samen de situatie: wat is de aanleiding, wat zijn de ambities van het management, en past het bedrijf bij onze investeringsfocus?</p>
+          </div>
+          <div class="step-card animate-on-scroll">
+            <div class="step-card__number">02</div>
+            <h3 class="step-card__title">Analyse &amp; indicatief bod</h3>
+            <p class="step-card__text">Wij analyseren het bedrijf en komen met een indicatieve waardering en transactiestructuur. We bespreken dit open met alle betrokken partijen.</p>
+          </div>
+          <div class="step-card animate-on-scroll">
+            <div class="step-card__number">03</div>
+            <h3 class="step-card__title">Due diligence &amp; closing</h3>
+            <p class="step-card__text">Na akkoord volgt een zorgvuldig due diligence proces, gevolgd door het opstellen en ondertekenen van de transactiedocumentatie.</p>
           </div>
         </div>
       </div>

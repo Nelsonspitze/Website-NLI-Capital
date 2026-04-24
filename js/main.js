@@ -377,4 +377,136 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  /* ============================================================
+     10. MBO Check — Step-by-step qualification tool
+     Walks the user through 5 yes/no questions after a role
+     selector. Shows a contact form on match, or an explanation
+     panel with a contact link on no-match.
+     ============================================================ */
+  const mboCheckEl = document.querySelector('.mbo-check');
+
+  if (mboCheckEl) {
+    let mboRole = null;
+    const mboAnswers = {};
+
+    const mboProgress   = document.getElementById('mboProgress');
+    const mboDots       = mboProgress ? mboProgress.querySelectorAll('.mbo-check__dot') : [];
+    const mboResultMatch   = document.getElementById('mboResultMatch');
+    const mboResultNoMatch = document.getElementById('mboResultNoMatch');
+
+    function mboShowStep(stepIndex) {
+      mboCheckEl.querySelectorAll('.mbo-check__step').forEach(s => s.classList.remove('is-active'));
+      if (mboResultMatch)   mboResultMatch.classList.remove('is-active');
+      if (mboResultNoMatch) mboResultNoMatch.classList.remove('is-active');
+
+      if (mboProgress) {
+        mboProgress.style.display = stepIndex >= 1 ? 'flex' : 'none';
+      }
+
+      mboDots.forEach((dot, i) => {
+        const n = i + 1;
+        dot.classList.toggle('is-completed', n < stepIndex);
+        dot.classList.toggle('is-active',    n === stepIndex);
+      });
+
+      const target = document.getElementById('mboStep' + stepIndex);
+      if (target) target.classList.add('is-active');
+    }
+
+    function mboShowResult(type) {
+      mboCheckEl.querySelectorAll('.mbo-check__step').forEach(s => s.classList.remove('is-active'));
+      if (mboProgress) mboProgress.style.display = 'none';
+      if (type === 'match') {
+        mboResultMatch.classList.add('is-active');
+      } else {
+        mboResultNoMatch.classList.add('is-active');
+      }
+    }
+
+    function mboEvaluate() {
+      const hasNee = Object.values(mboAnswers).some(a => a === 'nee');
+      mboShowResult(hasNee ? 'nomatch' : 'match');
+    }
+
+    function mboReset() {
+      mboRole = null;
+      Object.keys(mboAnswers).forEach(k => delete mboAnswers[k]);
+      mboShowStep(0);
+    }
+
+    // Role buttons
+    mboCheckEl.querySelectorAll('.mbo-check__role-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        mboRole = btn.dataset.role;
+        mboShowStep(1);
+      });
+    });
+
+    // Yes/No option buttons
+    mboCheckEl.querySelectorAll('.mbo-check__option-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const step   = parseInt(btn.dataset.step, 10);
+        const answer = btn.dataset.answer;
+        mboAnswers[step] = answer;
+        if (step < 5) {
+          mboShowStep(step + 1);
+        } else {
+          mboEvaluate();
+        }
+      });
+    });
+
+    // Back buttons
+    mboCheckEl.querySelectorAll('.mbo-check__back').forEach(btn => {
+      btn.addEventListener('click', () => {
+        mboShowStep(parseInt(btn.dataset.target, 10));
+      });
+    });
+
+    // Restart buttons
+    document.getElementById('mboRestartMatch')?.addEventListener('click', mboReset);
+    document.getElementById('mboRestartNoMatch')?.addEventListener('click', mboReset);
+
+    // MBO contact form submission
+    const mboForm = document.getElementById('mboContactForm');
+    if (mboForm) {
+      mboForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = mboForm.querySelector('[type="submit"]');
+        const originalLabel = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Verzenden…';
+
+        try {
+          const response = await fetch(mboForm.action, {
+            method: 'POST',
+            body: new FormData(mboForm),
+            headers: { Accept: 'application/json' },
+          });
+
+          if (response.ok) {
+            mboForm.innerHTML = `
+              <div class="form-success">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+                <h3>Gegevens ontvangen!</h3>
+                <p>Bedankt. Wij nemen binnen één werkdag contact met u op om uw situatie te bespreken.</p>
+              </div>`;
+          } else {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalLabel;
+            alert('Er is iets misgegaan. Probeer het opnieuw of stuur een e-mail naar nli-capital@nlinvesteert.nl.');
+          }
+        } catch {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+          alert('Er is iets misgegaan. Controleer uw internetverbinding en probeer het opnieuw.');
+        }
+      });
+    }
+
+    // Init
+    mboShowStep(0);
+  }
+
 });
