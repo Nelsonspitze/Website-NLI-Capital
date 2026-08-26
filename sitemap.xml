@@ -63,6 +63,26 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Vacatures -->
+  <url>
+    <loc>https://nelsonspitze.github.io/Website-NLI-Capital/werken-bij.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nelsonspitze.github.io/Website-NLI-Capital/vacatures/investment-analyst.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nelsonspitze.github.io/Website-NLI-Capital/vacatures/investment-associate.html</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Portfolio detailpagina's -->
   <url>
     <loc>https://nelsonspitze.github.io/Website-NLI-Capital/portfolio/quinnect.html</loc>
