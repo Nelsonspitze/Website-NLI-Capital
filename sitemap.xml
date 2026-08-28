@@ -4,61 +4,61 @@
   <!-- Hoofdpagina's -->
   <url>
     <loc>https://nlicapital.nl/</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/over-ons.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/aanpak.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/portfolio.html</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/team.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/contact.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/mbo.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/compagnon.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/groeikapitaal.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -66,19 +66,19 @@
   <!-- Vacatures -->
   <url>
     <loc>https://nlicapital.nl/werken-bij.html</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/vacatures/investment-analyst.html</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/vacatures/investment-associate.html</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -86,19 +86,19 @@
   <!-- Portfolio detailpagina's -->
   <url>
     <loc>https://nlicapital.nl/portfolio/quinnect.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/portfolio/turner.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/portfolio/hetraco.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://nlicapital.nl/portfolio/holland-ict-groep.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -124,7 +124,7 @@
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/holland-ict-groep-participatie.html</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
@@ -136,103 +136,86 @@
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/hetraco-mbo.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/pe-zonder-controleverlies.html</loc>
-    <lastmod>2026-04-11</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://nlicapital.nl/nieuws/turner-platform-participatie.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/turner-participatie.html</loc>
-    <lastmod>2026-04-11</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://nlicapital.nl/nieuws/hetraco-participatie.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/quinnect-participatie.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/fonds-1-final-close.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/birch-add-on.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/incompanymedia-add-on.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/onscloud-add-on.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/spargle-add-on.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/team-update-caroline.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/team-update-reinoud.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/team-update-dennis.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nlicapital.nl/nieuws/team-update-niels.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://nlicapital.nl/nieuws/team-update.html</loc>
-    <lastmod>2026-04-11</lastmod>
-    <changefreq>never</changefreq>
-    <priority>0.6</priority>
-  </url>
+
   <url>
     <loc>https://nlicapital.nl/privacy.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
