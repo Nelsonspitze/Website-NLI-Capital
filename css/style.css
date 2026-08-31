@@ -3168,14 +3168,8 @@ button:focus-visible {
 
 .vacancy-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .vacancy-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .vacancy-specs {
