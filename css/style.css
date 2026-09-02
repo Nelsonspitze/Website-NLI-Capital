@@ -1327,6 +1327,13 @@ a {
   white-space: nowrap;
 }
 
+.contact__nvp-logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
 .contact__nvp-logo {
   opacity: 0.6;
   transition: opacity var(--transition);
