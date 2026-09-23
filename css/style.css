@@ -35,7 +35,9 @@
    1. Google Fonts Import
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
+/* Manrope wordt geladen via <link> in de <head> van elke pagina, waar de browser
+   hem direct ziet. Een @import hier zou pas na het parsen van deze 62 KB worden
+   ontdekt en hing daarmee onnodig in de kritieke keten. */
 
 
 /* ============================================================
@@ -98,7 +100,7 @@
   /* Aliases used throughout */
   --radius:           var(--radius-lg);
   --color-border:     rgba(41, 43, 47, 0.10);
-  --color-text-light: rgba(41, 43, 47, 0.55);
+  --color-text-light: rgba(41, 43, 47, 0.68);
 }
 
 
