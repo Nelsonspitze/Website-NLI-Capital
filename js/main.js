@@ -510,3 +510,149 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+
+/* ============================================================
+   11. Cookie Consent Banner
+   Analytics starts out denied: every page declares
+   gtag('consent','default', ... 'denied') inline in its <head>,
+   and restores an earlier choice there as well, so that
+   restoring does not have to wait for this deferred script.
+   This module only handles the case where no valid choice is
+   stored yet: it shows the banner and flips consent to granted
+   when the visitor accepts. A stored choice expires after
+   twelve months, after which the banner returns.
+   Deliberately outside the DOMContentLoaded handler above so
+   it stays independent of the rest of the page logic.
+   ============================================================ */
+
+(function () {
+
+  var STORAGE_KEY = 'nlic-cookieconsent';
+  var MAX_AGE = 31536000000; // twelve months in milliseconds
+
+  // Reading and writing localStorage throws in strict privacy
+  // modes, so every access is guarded. On failure we fall back
+  // to "no choice made", which shows the banner again rather
+  // than silently assuming consent.
+  function readChoice() {
+    try {
+      var choice = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+      if (choice && typeof choice.analytics === 'boolean' &&
+          Date.now() - choice.ts < MAX_AGE) {
+        return choice;
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  function saveChoice(analytics) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        analytics: analytics,
+        ts: Date.now()
+      }));
+    } catch (e) {}
+  }
+
+  // The banner is injected by script, but the site uses relative
+  // paths across three directory depths. The footer link to the
+  // privacy statement already carries the right prefix on every
+  // page that has a footer, so we borrow it. The design guide has
+  // no site footer, hence the absolute fallback.
+  function privacyHref() {
+    var link = document.querySelector('.footer__links a[href$="privacy.html"]');
+    return link ? link.getAttribute('href') : '/privacy.html';
+  }
+
+  // Removing consent stops new cookies but never clears existing ones,
+  // so we expire them by hand across every domain scope GA may have used.
+  function clearAnalyticsCookies() {
+    var host = window.location.hostname;
+    var apex = host.split('.').slice(-2).join('.');
+    var gone = '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+
+    document.cookie.split(';').forEach(function (pair) {
+      var name = pair.split('=')[0].trim();
+      if (name.indexOf('_ga') !== 0 && name.indexOf('_gid') !== 0) return;
+      document.cookie = name + gone;
+      document.cookie = name + gone + '; domain=' + host;
+      document.cookie = name + gone + '; domain=.' + apex;
+    });
+  }
+
+  function removeBanner() {
+    var existing = document.querySelector('.cookie-banner');
+    if (existing) existing.remove();
+  }
+
+  function showBanner() {
+    if (document.querySelector('.cookie-banner')) return;
+
+    var banner = document.createElement('section');
+    banner.className = 'cookie-banner';
+    banner.setAttribute('role', 'region');
+    banner.setAttribute('aria-label', 'Cookiemelding');
+    banner.innerHTML =
+      '<div class="container cookie-banner__inner">' +
+        '<div class="cookie-banner__text">' +
+          '<strong class="cookie-banner__title">Cookies op deze website</strong>' +
+          '<p>Wij gebruiken Google Analytics om te meten hoe onze website wordt gebruikt. ' +
+          'Daarvoor worden cookies geplaatst. Zonder uw toestemming gebeurt dat niet. ' +
+          'Meer hierover leest u in onze <a href="' + privacyHref() + '">privacyverklaring</a>.</p>' +
+        '</div>' +
+        '<div class="cookie-banner__actions">' +
+          '<button type="button" class="btn btn-white" data-consent="accept">Accepteren</button>' +
+          '<button type="button" class="btn btn-outline-light" data-consent="decline">Alleen noodzakelijk</button>' +
+        '</div>' +
+      '</div>';
+
+    banner.addEventListener('click', function (e) {
+      var button = e.target.closest('[data-consent]');
+      if (!button) return;
+
+      var accepted = button.getAttribute('data-consent') === 'accept';
+      saveChoice(accepted);
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          analytics_storage: accepted ? 'granted' : 'denied'
+        });
+      }
+
+      if (accepted) {
+        // The pageview for the current page fired while consent was
+        // still denied, so send it again now that it may be counted.
+        if (typeof window.gtag === 'function') window.gtag('event', 'page_view');
+      } else {
+        // Withdrawing only stops new cookies; the ones already set stay
+        // for two years unless we delete them ourselves.
+        clearAnalyticsCookies();
+      }
+
+      removeBanner();
+    });
+
+    document.body.appendChild(banner);
+  }
+
+  function init() {
+    if (!readChoice()) showBanner();
+
+    // Lets visitors revisit their choice from the privacy statement.
+    var settingsButton = document.getElementById('cookieSettings');
+    if (settingsButton) {
+      settingsButton.addEventListener('click', function () {
+        removeBanner();
+        showBanner();
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();

@@ -24,14 +24,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBQ6S0Z5GM"></script>
+    <!-- Google tag (gtag.js) - meet pas na toestemming, zie de cookiebanner in js/main.js -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        personalization_storage: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
+      try {
+        var c = JSON.parse(localStorage.getItem('nlic-cookieconsent') || 'null');
+        if (c && c.analytics === true && Date.now() - c.ts < 31536000000) {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+        }
+      } catch (e) {}
       gtag('js', new Date());
       gtag('config', 'G-JBQ6S0Z5GM');
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBQ6S0Z5GM"></script>
 </head>
 <body>
 
@@ -89,7 +105,7 @@
       <div class="container" style="text-align:center;">
         <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius);box-shadow:0 8px 32px rgba(0,0,0,0.12);">
           <iframe
-            src="https://www.youtube.com/embed/bj7CsLfBuKg"
+            src="https://www.youtube-nocookie.com/embed/bj7CsLfBuKg"
             title="Quinnect — NLI Capital"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -6,21 +6,36 @@
   <link rel="icon" href="assets/logo/nli-capital-logo.svg" type="image/svg+xml">
   <title>Privacyverklaring — NLI Capital</title>
   <meta name="description" content="Privacyverklaring van NLI Capital. Hoe wij omgaan met persoonsgegevens die via onze website worden verstrekt.">
-  <meta name="robots" content="noindex">
   <link rel="canonical" href="https://nlicapital.nl/privacy.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBQ6S0Z5GM"></script>
+    <!-- Google tag (gtag.js) - meet pas na toestemming, zie de cookiebanner in js/main.js -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        personalization_storage: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted',
+        wait_for_update: 500
+      });
+      try {
+        var c = JSON.parse(localStorage.getItem('nlic-cookieconsent') || 'null');
+        if (c && c.analytics === true && Date.now() - c.ts < 31536000000) {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+        }
+      } catch (e) {}
       gtag('js', new Date());
       gtag('config', 'G-JBQ6S0Z5GM');
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBQ6S0Z5GM"></script>
 </head>
 <body>
 
@@ -47,7 +62,7 @@
   <section class="page-hero page-hero--dark">
     <div class="container page-hero__inner">
       <h1 class="page-hero__title">Privacyverklaring</h1>
-      <p class="page-hero__subtitle">Versie april 2026</p>
+      <p class="page-hero__subtitle">Versie september 2026</p>
     </div>
   </section>
 
@@ -68,7 +83,7 @@
         </p>
 
         <h2>Welke persoonsgegevens verwerken wij?</h2>
-        <p>Wij verwerken persoonsgegevens die u ons actief verstrekt via het contactformulier op onze website. Het gaat om de volgende gegevens:</p>
+        <p>Wij verwerken persoonsgegevens die u ons actief verstrekt via de formulieren op onze website: het contactformulier en de aanmeldformulieren bij onze zoekprofielen en informatiepagina's. Het gaat om de volgende gegevens:</p>
         <ul>
           <li>Naam</li>
           <li>E-mailadres</li>
@@ -86,6 +101,10 @@
         <h2>Doorgifte aan derden</h2>
         <p>Uw gegevens worden niet verkocht aan derden. Wij maken gebruik van <strong>Formspree</strong> (Formspree Inc., VS) als verwerkende partij voor het ontvangen van formulierberichten. Formspree verwerkt gegevens op basis van standaard contractbepalingen (SCC's) conform de AVG. Meer informatie vindt u op <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer">formspree.io/legal/privacy-policy</a>.</p>
         <p>Onze website maakt gebruik van <strong>Google Fonts</strong>, waarvoor uw IP-adres tijdelijk kan worden doorgegeven aan Google LLC (VS). Dit gebeurt op basis van gerechtvaardigde belangen (correct weergeven van de website).</p>
+        <p>Als u daarvoor toestemming geeft, maken wij gebruik van <strong>Google Analytics</strong> om het gebruik van onze website te meten. Daarbij worden gegevens over uw bezoek, waaronder uw IP-adres, verwerkt door Google Ireland Limited en kunnen deze worden doorgegeven aan Google LLC (VS). Google is gecertificeerd onder het EU-US Data Privacy Framework. Zonder uw toestemming wordt Google Analytics niet geactiveerd.</p>
+
+        <h2>Sollicitaties</h2>
+        <p>Reageert u op een vacature, dan verwerken wij de gegevens die u ons per e-mail toestuurt, waaronder uw naam, contactgegevens, curriculum vitae en motivatie. Wij gebruiken deze uitsluitend voor de sollicitatieprocedure en bewaren ze tot uiterlijk vier weken na afronding daarvan, tenzij u ons toestemming geeft ze langer te bewaren.</p>
 
         <h2>Bewaartermijn</h2>
         <p>Wij bewaren uw gegevens niet langer dan noodzakelijk voor het doel waarvoor ze zijn verzameld. Contactberichten worden bewaard zolang dat nodig is voor de afhandeling van uw verzoek en daarna maximaal 12 maanden.</p>
@@ -102,10 +121,22 @@
         <p>U kunt uw verzoek richten aan <a href="mailto:nli-capital@nlinvesteert.nl">nli-capital@nlinvesteert.nl</a>. Wij reageren binnen vier weken. U heeft ook het recht een klacht in te dienen bij de Autoriteit Persoonsgegevens via <a href="https://www.autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener noreferrer">autoriteitpersoonsgegevens.nl</a>.</p>
 
         <h2>Cookies</h2>
-        <p>Deze website maakt geen gebruik van tracking- of analytische cookies. Er worden geen bezoekers gevolgd of geprofileerd.</p>
+        <p>Wij gebruiken Google Analytics om te meten hoe onze website wordt gebruikt, zodat wij de inhoud kunnen verbeteren. Daarvoor worden de volgende cookies geplaatst:</p>
+        <ul>
+          <li><strong>_ga</strong> &mdash; geplaatst door Google, onderscheidt terugkerende bezoekers, geldig tot maximaal twee jaar</li>
+          <li><strong>_ga_JBQ6S0Z5GM</strong> &mdash; geplaatst door Google, houdt de sessiestatus bij, geldig tot maximaal twee jaar</li>
+        </ul>
+        <p>Deze cookies worden pas geplaatst nadat u daarvoor toestemming heeft gegeven via de cookiemelding. Kiest u voor alleen noodzakelijke cookies, dan wordt Google Analytics niet geactiveerd en worden er geen bezoekers gevolgd of geprofileerd. De gemeten gegevens worden bij Google maximaal veertien maanden bewaard.</p>
+        <p>Uw keuze wordt lokaal in uw browser opgeslagen en blijft twaalf maanden geldig. Daarna vragen wij het u opnieuw. U kunt uw keuze op elk moment wijzigen:</p>
+        <p style="margin-top:1.25rem;">
+          <button type="button" class="btn btn-secondary" id="cookieSettings">Cookie-instellingen wijzigen</button>
+        </p>
+
+        <h2>Verhouding tot NL Investeert</h2>
+        <p>NLI Capital is onderdeel van NL Investeert. Deze privacyverklaring geldt voor de persoonsgegevens die via deze website worden verwerkt. Verwerkt NL Investeert uw gegevens in het kader van het investeerdersplatform, de investeerdersapp of de bredere dienstverlening, dan geldt daarvoor het privacybeleid van NLInvesteert, dat mede ziet op gelieerde ondernemingen. U vindt dat beleid op <a href="https://www.nlinvesteert.nl/privacy" target="_blank" rel="noopener noreferrer">nlinvesteert.nl/privacy</a>.</p>
 
         <h2>Wijzigingen</h2>
-        <p>NLI Capital behoudt zich het recht voor deze privacyverklaring te wijzigen. Wij raden u aan deze pagina periodiek te raadplegen. De huidige versie is van april 2026.</p>
+        <p>NLI Capital behoudt zich het recht voor deze privacyverklaring te wijzigen. Wij raden u aan deze pagina periodiek te raadplegen. De huidige versie is van september 2026.</p>
 
         <div style="margin-top:2.5rem;">
           <a href="index.html" class="article-back">&larr; Terug naar home</a>

@@ -3235,3 +3235,100 @@ button:focus-visible {
   max-width: 560px;
   margin: 0;
 }
+
+
+/* ============================================================
+   Cookie banner
+   Vastgezet onderaan het scherm, boven de sticky nav (z-index
+   1000) en de mobiele menu-overlay (999). De banner wordt door
+   js/main.js geinjecteerd en is dus een sibling van .nav, zodat
+   hij met een ~-selector verborgen kan worden zolang het
+   mobiele menu openstaat.
+   ============================================================ */
+
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1100;
+  background: linear-gradient(180deg, #1e2024 0%, #292B2F 100%);
+  border-top: 3px solid var(--color-primary);
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.22);
+  color: rgba(255, 255, 255, 0.72);
+  padding: var(--space-6) 0;
+}
+
+.nav.open ~ .cookie-banner {
+  display: none;
+}
+
+.cookie-banner__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.cookie-banner__text {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.cookie-banner__title {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+  margin-bottom: var(--space-2);
+}
+
+.cookie-banner__text p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 68ch;
+}
+
+.cookie-banner__text a {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-banner__text a:hover {
+  color: var(--color-white);
+  text-decoration-color: var(--color-primary);
+}
+
+/* Beide knoppen even groot en even vindbaar: weigeren moet net
+   zo makkelijk zijn als accepteren. */
+.cookie-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .cookie-banner {
+    padding: var(--space-5) 0;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .cookie-banner__inner {
+    gap: var(--space-4);
+  }
+
+  .cookie-banner__actions {
+    width: 100%;
+  }
+
+  .cookie-banner__actions .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
