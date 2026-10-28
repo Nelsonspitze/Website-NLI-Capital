@@ -135,6 +135,13 @@
 
   <!-- Nieuws artikelen -->
   <url>
+    <loc>https://nlicapital.nl/nieuws/management-buy-out-financiering.html</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
     <loc>https://nlicapital.nl/nieuws/groeikapitaal-of-extra-schuld.html</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>never</changefreq>
